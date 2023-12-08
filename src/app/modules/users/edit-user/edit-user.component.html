@@ -1,0 +1,63 @@
+<div class="d-flex">
+  <div style="height: 90vh; width: 150px;" class="sidebar bg-info text-light p-3 mt-1 d-flex flex-column">
+    <a style="text-decoration: none; margin-top: 10px;font-weight: bold;color: white;" routerLink="/dashboard">Home</a>
+    <a style="text-decoration: none; margin-top: 10px;font-weight: bold;color: white;" routerLink="/users">Users</a>
+
+  </div>
+
+
+  <div class="p-3 ps-5 w-50 justify-content-center align-items-center">
+    <h1 class="p-3 m-3">Edit User</h1>
+    <form #addUserForm="ngForm" class="shadow p-5 ">
+      <div class="form-floating mb-3">
+
+        <input type="text" class="form-control" id="floatingInputId">
+        <label for="floatingInputId">USer ID</label>
+      </div>
+      <!-- Invalid email -->
+      <!-- <div *ngIf="uid.invalid && uid.touched" class="mb-3 text-danger fw-bolder">
+        Invalid Id
+      </div> -->
+      <div class="form-floating mb-3">
+
+        <input type="text" class="form-control" id="floatingInputName">
+        <label for="floatingInputName">USer Name</label>
+      </div>
+
+      <!-- Invalid user name -->
+      <!-- <div *ngIf="uname.invalid && uname.touched" class="mb-3 text-danger fw-bolder">
+        Invalid user name
+      </div> -->
+
+
+      <div class="form-floating mb-3">
+
+        <input type="email" class="form-control" id="floatingInputEmail">
+        <label for="floatingInputEmail">Email</label>
+      </div>
+
+      <!-- Invalid user name -->
+      <!-- <div *ngIf="useremailInput.invalid && useremailInput.touched" class="mb-3 text-danger fw-bolder">
+        Invalid Email
+      </div> -->
+
+      <div class="form-floating mb-3">
+        <select id="floatingInputstatus" class="form-control">
+          <option disabled hidden selected value=""></option>
+          <option value="1">Active</option>
+          <option value="0">InActive</option>
+        </select>
+        <label for="floatingInputstatus">Status</label>
+
+      </div>
+      <!-- Invalid user name -->
+      <!-- <div *ngIf="active.invalid && active.touched" class="mb-3 text-danger fw-bolder">
+  Invalid usr status
+</div> -->
+      <div class="d-flex p-3 justify-content-around">
+        <button class="btn btn-warning p-2 pe-2 m-2">Cancel</button>
+        <button class="btn btn-success p-2 pe-3 m-2">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="d-flex">
+    <div style="height: 90vh; width: 150px;" class="sidebar bg-info text-light p-3 mt-1 d-flex flex-column">
+        <a style="text-decoration: none; margin-top: 10px;font-weight: bold;color: white;" routerLink="/dashboard">Home</a>
+        <a style="text-decoration: none; margin-top: 10px;font-weight: bold;color: white;" routerLink="/users">Users</a>
+
+    </div>
+   
+    <div class="dashboard p-3 w-100">
+        <div class="d-flex justify-content-between"> 
+            <h1 class="">USERS</h1>
+            <button routerLink="add" class=" btn btn-success me-5">New User</button>
+        </div>
+        <table class="table mt-5 shadow">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>User NAme</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of allUsers" [hidden]="user.id==='1'">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}} </td>
+                    <td><span [ngClass]="user.active==='1'?'btn btn-success':'btn btn-warning text-light'">{{user.active=="1"?"Active":"InActive"}}</span></td>
+                    <td>
+                        <!-- edit -->
+                        <a routerLink="edit/{{user.id}}"> <i class="fa-solid fa-pen text-success me-2 btn"></i></a>
+                        <!-- delete -->
+                        <i (click)="removeUser(user.id)" class="fa-solid fa-trash text-danger btn"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
