@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { APP_ID, Injectable } from '@angular/core';
 import { UserModel } from './users.model';
 
 @Injectable({
@@ -24,6 +24,16 @@ getAllUserAPI(){
 deleteUserAPI(id:string){
   return this.http.delete(`${this.SERVER_URL}/users/${id}`)
 
+}
+
+// view user 
+viewUserAPi(id:any){
+  return this.http.get(`${this.SERVER_URL}/users/${id}`)
+}
+
+// edit user api
+updateUserAPI(id:any,user:UserModel){
+  return this.http.put(`${this.SERVER_URL}/users/${id}`,user)
 }
 }
 
