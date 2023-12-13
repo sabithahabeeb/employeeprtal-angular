@@ -19,7 +19,10 @@ export class LoginComponent {
           // console.log(res);
           const{email,password}= res
           if(email===this.email && password===this.password){
-            alert("Login Success")
+            // save admin details
+            localStorage.setItem("admin_name",res.name)
+            localStorage.setItem("admin_pswd",res.password)
+            alert("Login Successfull")
             // navigate  dashboard
             this.router.navigateByUrl("dashboard")
           }else{

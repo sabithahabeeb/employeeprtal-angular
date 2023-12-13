@@ -1,10 +1,40 @@
 <div class="d-flex">
-    <div style="height: 90vh; width: 150px;" class="sidebar bg-info text-light p-3 mt-1 d-flex flex-column">
-        <a style="text-decoration: none; margin-top: 10px;font-weight: bold;color: white;" routerLink="/dashboard">Home</a>
+    <div *ngIf="showSidebar" style="height: 90vh; width: 150px;" class="sidebar bg-info text-light p-3 mt-1 d-flex flex-column">
+        <a style="text-decoration: none; margin-top: 10px;font-weight: bold;color: white;"
+            routerLink="/dashboard">Home</a>
         <a style="text-decoration: none; margin-top: 10px;font-weight: bold;color: white;" routerLink="/users">Users</a>
-
+<button (click)="logout()" class="btn mt-auto text-light">LogOut</button>
     </div>
     <div class="dashboard p-3 w-100">
-        <h1>Welcome Admin!!</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <div style="height: 180px; background-image: url('https://t3.ftcdn.net/jpg/05/78/94/94/360_F_578949486_IUFDkbOIhPmDkiKwCNvG7oOAtP9sNvO6.jpg'); background-size: cover;"
+                    class="admin-banner rounded d-flex align-items-cener shadow w-100">
+                    <h1 class="ms-5 fw-bolder d-flex align-items-center  text-light"><i
+                          (click)="menuBtnClick()"  class="fa-solid fa-bars me-3"></i><span style="height: 40px;">Welcome {{admin_name}}</span></h1>
+                </div>
+                <div class="row m-3">
+                    <div class="col-lg-5 border rounded shadow">
+                        <!-- <h1>Calender</h1> -->
+                        <mat-card class="demo-inline-calendar-card">
+                            <mat-calendar [(selected)]="selected"></mat-calendar>
+                        </mat-card>
+
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-6 border rounded shadow">
+                        <app-chart></app-chart>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div style="height: 400px; " class="edit-admin border rounded shadow p-2 ">edit admin</div>
+                <div style="height: 150px;background-image: url('https://t3.ftcdn.net/jpg/05/78/94/94/360_F_578949486_IUFDkbOIhPmDkiKwCNvG7oOAtP9sNvO6.jpg')"
+                    class=" border rounded shadow p-2 text-light d-flex align-items-center justify-content-center mt-3 ">
+                    <h2 class="fw-bolder"> <i class="fa-solid fa-users fa-1x me-2"></i>Employees : {{employeeCount}}</h2>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
